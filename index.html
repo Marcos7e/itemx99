@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" ng-app>
+<html lang="es" ng-app="mainController">
 	<head>
 		<meta charset ="utf8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<script type="text/javascript" src="scripts/require.js" data-main="scripts/main"></script>
+		
 		<link rel="stylesheet" type="text/css" href="scripts/thirds/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css">
 		
@@ -33,9 +34,9 @@
 						<div class="collapse navbar-collapse " id="menuPrincipal">
 						<ul class="nav navbar-nav navbar-left">
 							<!--Visibles hasta M-->
-							<li><a href="#link1">Entregas</a></li>
-							<li><a href="#link1">Vender</a></li>
-							<li><a href="#link1">Ayuda</a></li>
+							<li><a href="#/home">Entregas</a></li>
+							<li><a href="#/offer">Vender</a></li>
+							<li><a href="#/link1">Ayuda</a></li>
 						   	<!--Droptown desplegable para opciones de Cuenta-->
 							<li class="droptown">
 							     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuenta<span class="caret"></span></a>
@@ -91,11 +92,13 @@
 			</nav>
 			<!--Fin de menú -->
 			<!--Acá se da la renderización de los partials-->
-			<div>
-				  
+			<div ng-view>
+			{{2+1}}
+
 				
 			</div>
-		
+
+
 
 
 
