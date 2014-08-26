@@ -1,0 +1,17 @@
+{
+  "name": "itemx99",
+  "version": "0.0.1",
+  "description": "\"venta electronica sobre cosas gamers/geeks/anime al por mayor/menor",
+  "authors": [
+    "Marcos Barrera"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts/thirds",
+    "test",
+    "tests"
+  ]
+}
