@@ -6,3 +6,8 @@ body {
 .colapsable{
 	margin: -5%;
 }
+
+.noPadd{
+	padding: 0%;
+	margin: 0%;
+}

@@ -5,7 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<script type="text/javascript" src="scripts/require.js" data-main="scripts/main"></script>
-		
+		<script type="text/javascript" src="scripts/thirds/angular/angular.js"></script>
+		<script type="text/javascript" src="scripts/thirds/angular/angular-route.js"></script>
+		<script type="text/javascript" src="scripts/thirds/angular/angular-resource.js"></script>
+		<script type="text/javascript" src="scripts/thirds/angular-bootstrap/ui-bootstrap.js"></script>
+		<script type="text/javascript" src="scripts/thirds/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script type="text/javascript" src="scripts/mainModule.js"></script>
+
+
 		<link rel="stylesheet" type="text/css" href="scripts/thirds/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css">
 		
@@ -92,10 +99,8 @@
 			</nav>
 			<!--Fin de menú -->
 			<!--Acá se da la renderización de los partials-->
+  
 			<div ng-view>
-			{{2+1}}
-
-				
 			</div>
 
 
@@ -103,7 +108,5 @@
 
 
 
-
-		</div>
 	</body>
 </html>

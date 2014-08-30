@@ -1,8 +1,4 @@
 define(["jquery","bootstrap"], function(){
-	return console.log("bootstrap dependencies loaded!");
+	return("ok!");
 });
 
-
-//define(["jquery","bootstrap","thirds/angular/angular-resource","thirds/angular/angular-route"], function(){
-//	return console.log("bootstrap dependencies loaded!");
-//});
