@@ -10,11 +10,19 @@
 		<script type="text/javascript" src="scripts/thirds/angular/angular-resource.js"></script>
 		<script type="text/javascript" src="scripts/thirds/angular-bootstrap/ui-bootstrap.js"></script>
 		<script type="text/javascript" src="scripts/thirds/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+	<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAjr_H9bq4BuXq1NwrQXM-RBKotMGPmXu8&sensor=false">
+    </script>
+
 		<script type="text/javascript" src="scripts/mainModule.js"></script>
+		<script type="text/javascript" src="scripts/helpers/gps.js"></script>
 
 
 		<link rel="stylesheet" type="text/css" href="scripts/thirds/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/base.css">
+
+	
 		
 	</head>
 
@@ -41,16 +49,16 @@
 						<div class="collapse navbar-collapse " id="menuPrincipal">
 						<ul class="nav navbar-nav navbar-left">
 							<!--Visibles hasta M-->
-							<li><a href="#/home">Entregas</a></li>
-							<li><a href="#/offer">Vender</a></li>
-							<li><a href="#/link1">Ayuda</a></li>
+							<li><a href="#/home">Registrar</a></li>
+							<li><a href="#/offer">Acceder</a></li>
+							<li><a href="#/link1">Eventos</a></li>
 						   	<!--Droptown desplegable para opciones de Cuenta-->
 							<li class="droptown">
 							     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuenta<span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="link">Perfil</a></li>
-									<li><a href="link">Lista de Deseos</a></li>
-									<li><a href="link">Mis Articulos</a></li>
+									<li><a href="link">Lista de Eventos</a></li>
+									<li><a href="link">Mis Tikets</a></li>
 									<li class="divider"></li>
 									<li><a href="link">Configuración</a></li>
 									<li><a href="link">Ayuda</a></li>
@@ -63,7 +71,7 @@
 							</ul>
 							<form class="navbar-form navbar-left" role="search">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="buscar...">
+									<input type="text" class="form-control" placeholder="Buscar evento...">
 								</div>
 								
 								<div class="btn-group">
@@ -71,11 +79,11 @@
 									Categorias <span class="caret"></span></button>
 
 									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">PC gaming</a></li>
-										<li><a href="#">Consolas</a></li>
-										<li><a href="#">Anime</a></li>
-										<li><a href="#">Manga</a></li>
-										<li><a href="#">Cosplay</a></li>
+										<li><a href="#">Conciertos</a></li>
+										<li><a href="#">Convenciones</a></li>
+										<li><a href="#">Ventas</a></li>
+										<li><a href="#">Restaurantes</a></li>
+										<li><a href="#">Teatrales</a></li>
 									
 									</ul>
 								</div>
@@ -84,28 +92,28 @@
 
 
 							</form>
-
-                           
-							<button type="button" class="btn btn-info navbar-btn navbar-right">
-							<span class="glyphicon glyphicon-shopping-cart"></span>
+							<div class="nav">
+                           	<button type="button" class="btn btn-info navbar-btn navbar-right" onclick="getLocation()">
+							<span class="glyphicon glyphicon-globe"></span>
 							</button>
+                           </div>
+
+
 							
 
 							</div>
 
+
+                          
 							
 						
 				</div>
 			</nav>
 			<!--Fin de menú -->
-			<!--Acá se da la renderización de los partials-->
-  
-			<div ng-view>
-			</div>
+</div>
 
-
-
-
+ <div id="map_canvas" style="width"></div>
+ 
 
 
 	</body>
