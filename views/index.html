@@ -24,6 +24,8 @@
 		<script type="text/javascript" src="scripts/modules/userRegisterModule.js"></script>
 		<script type="text/javascript" src="scripts/modules/mapModule.js"></script>
 		<script type="text/javascript" src="scripts/helpers/gps.js"></script>
+		<script type="text/javascript" src="scripts/modules/menuModule.js"></script>
+
 
 		<!--Css para maquetado -->
 		<link rel="stylesheet" type="text/css" href="scripts/thirds/bootstrap/dist/css/bootstrap.css">
@@ -57,7 +59,7 @@
 						<ul class="nav navbar-nav navbar-left">
 							<!--Visibles hasta M-->
 							<li><a href="#/register">Registrar</a></li>
-							<li><a href="#/offer">Acceder</a></li>
+							<li><a href="/offer">Acceder</a></li>
 							<li><a href="#/map">Eventos</a></li>
 						   	<!--Droptown desplegable para opciones de Cuenta-->
 							<li class="droptown">
@@ -99,9 +101,9 @@
 
 
 							</form>
-							<div class="nav">
-                           	<button type="button" class="btn btn-info navbar-btn navbar-right">
-                           		<a href="#map"></a>
+							<div class="nav" ng-controller="menuModule">
+                           	<button type="button" class="btn btn-info navbar-btn navbar-right" ng-click="toMap()">
+                           	
 							<span class="glyphicon glyphicon-globe"></span>
 							</button>
                            </div>

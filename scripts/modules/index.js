@@ -5,11 +5,13 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 	$routeProvider
 
 	.when('/',{
+		title:"Bienvenido!",
 		templateUrl:'/partial/start.html',
 		controller: 'startModule'
 	})
 
 	.when('/register',{
+		title:"Registrate con Nosotros!",
 		templateUrl: 'partial/userRegister.html',
 		controller:'userRegisterModule'
 	})
@@ -20,7 +22,6 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 	})
 
 
-	
 	.otherwise({
 		redirectTo: '/'
 	});
