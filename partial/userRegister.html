@@ -1,3 +1,93 @@
+	<div class="container-fluid">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="topBarModule">
+				<div class="container-fluid">
+					<div class="navbar-header"> 
+						<!--Logo-->
+						<a class="navbar-brand" href="#">Brand</a>
+						<!--toogle para resoluciones menores-->
+						<button type="button" class="navbar-toggle navbar-left" data-toggle="collapse" data-target="#menuPrincipal">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+						</div>
+						<!--Menú en si ... collapsable en resoluciones menores-->
+						
+						<div class="collapse navbar-collapse " id="menuPrincipal">
+						<ul class="nav navbar-nav navbar-left">
+							<!--Visibles hasta M-->
+							<li ng-repeat="item in menuStarter">
+								<a href={{item.href}}>
+								{{item.title}}</a>
+							</li>
+
+
+
+						   	<!--Droptown desplegable para opciones de Cuenta-->
+						<!--	<li class="droptown">
+							     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuenta<span class="caret"></span></a>
+								<ul class="dropdown-menu" role="menu">
+									<li><a href="link">Perfil</a></li>
+									<li><a href="link">Lista de Eventos</a></li>
+									<li><a href="link">Mis Tikets</a></li>
+									<li class="divider"></li>
+									<li><a href="link">Configuración</a></li>
+									<li><a href="link">Ayuda</a></li>
+									
+								</ul>
+
+							</li>-->
+							
+							<!---->
+							</ul>
+							<form class="navbar-form navbar-left" role="search">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Buscar evento...">
+								</div>
+								
+								<div class="btn-group">
+								<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+									Categorias <span class="caret"></span></button>
+
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Conciertos</a></li>
+										<li><a href="#">Convenciones</a></li>
+										<li><a href="#">Ventas</a></li>
+										<li><a href="#">Restaurantes</a></li>
+										<li><a href="#">Teatrales</a></li>
+									
+									</ul>
+								</div>
+
+								
+
+
+							</form>
+							<div class="nav" ng-controller="menuModule">
+
+								<div class="navbar-right">
+
+						   <p class={{greeting.class}}><a href={{greeting.href}}>
+						   	{{greeting.title}}
+						   </a></p>
+
+
+
+                           	<button type="button" class="btn btn-info navbar-btn " ng-click="toMap()">
+                           	
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							</button>
+                           </div>
+							</div>
+							</div>
+
+			
+						
+				</div>
+			</nav>
+			<!--Fin de menú -->
+</div>
 			<div class="container">
 			<div class="row">
 			<h1 class="text-center">Gracias por Unirte!</h1>
@@ -7,19 +97,21 @@
 
 			<div class="row">
 
-			<form role="form" action="http://localhost:8002/done" method="post" >
+			<form role="form" action="http://localhost:8002/done" method="post" ng-controller="userRegisterModule"  >
     		
 				<div class="form-group">
 					<label for="userName">Nombre:</label>
-    				<input type="text" class="form-control" name="uname" id="userName" placeholder="Ingresa tu nombre...">
+    				<input type="text" class="form-control" name="uname" id="userName" placeholder="Ingresa tu nombre..."
+    				ng-model="validate.name"
+    				 ng-pattern="/[a-zA-Z]+/g" />	
 				</div>
 
 				<div class="form-group">
 					<label for="userEmail">Email:</label>
-    				<input type="email" class="form-control" name="email" id="userEmail" placeholder="Ingresa tu email...">
+    				<input type="email" class="form-control" name="email" id="userEmail" placeholder="Ingresa tu email..." ng-model="email">
 				</div>
 
-		<div ng-controller="userRegisterModule">
+	<!--	<div ng-controller="userRegisterModule">
 				<div class="form-group">
     			<div class="row">
        			 <div class="col-lg-6">
@@ -34,21 +126,21 @@
         </div>
     </div>
 				</div>
-				</div>
+				</div> -->
 
 					<div class="form-group">
 					<label for="userID"class="col-4-lg">ID de Usuario</label>
-    				<input type="email" class="form-control" name="user" id="userID" placeholder="Prueba con '@tu_nombre'">
+    				<input type="email" class="form-control" name="user" id="userID" placeholder="Prueba con '@tu_nombre'" ng-model="uName">
     				</div>
 
     					<div class="form-group">
 					<label for="paswdIn"class="col-4-lg">Contraseña:</label>
-    				<input type="password" class="form-control" name="pass" id="paswdIn" placeholder="Contraseña...">
+    				<input type="password" class="form-control" name="pass" id="paswdIn" placeholder="Contraseña..." ng-model="passwd">
     				</div>
 
     					<div class="form-group">
 					<label for="paswdIn2"class="col-4-lg">Repite Contraseña:</label>
-    				<input type="password" class="form-control" id="pass2" placeholder="Nuevamente la contraseña...">
+    				<input type="password" class="form-control" id="pass2" placeholder="Nuevamente la contraseña..."  ng-model="conf_passwd">
     				</div>
 
 				<div class="form-group">
@@ -62,6 +154,8 @@
 			
 
 			</div>
+
+			<p>Error nombre : {{form.uname.$error}} </p>
 			</form>
 			
 

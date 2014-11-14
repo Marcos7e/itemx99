@@ -1,6 +1,17 @@
-app.controller('userRegisterModule',function ($scope) {
- 
-  $scope.initDate = function() {
+app.controller('userRegisterModule',function($scope) {
+
+//Validaciones!
+
+$scope.validate ={ 
+  name:"marcos",
+  email:"mmbarrerae@outlook.es",
+  uName:"Marks7e",
+  passwd:"vastago7e"
+};
+
+
+
+ $scope.initDate = function() {
     $scope.dt = new Date('1990-01-01');
   };
   $scope.initDate();
@@ -20,10 +31,16 @@ app.controller('userRegisterModule',function ($scope) {
     startingDay: 1
   };
 
+  $scope.format = 'dd-MMMM-yyyy'; 
+ 
+ 
 
- 
-  $scope.format = 'dd-MMMM-yyyy';
- 
+
+
+
+
+
+
 });
 
  

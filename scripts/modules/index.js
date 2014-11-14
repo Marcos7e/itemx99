@@ -20,6 +20,15 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 		templateUrl: 'partial/map.html',
 		controller:'mapModule'
 	})
+	.when('/login',{
+		templateUrl: 'partial/login.html',
+		controller:'loginModule'
+	})
+	.when('/donelogin',{
+		templateUrl: 'partial/donelogin.html',
+		controller:'doneLoginModule'
+	})
+
 
 
 	.otherwise({
@@ -27,6 +36,46 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 	});
 
 });
+
+	app.factory('login', function(){
+		
+		var sesionData={
+			uname: 	"n/a",
+ 			email:  "n/a",
+			uName:  "n/a",
+			isLoged: false
+			};
+
+		return{
+			getUserName: function(){
+				return sesionData.uName;
+			},
+			setUserName: function(user){
+				sesionData.uName =user;
+			},
+			getUserEmail: function(){
+				return sesionData.email;
+			},
+			setUserEmail: function(em){
+				sesionData.email = em;
+			},
+			getUserId: function(){
+				return sesionData.uname;
+			},
+			setUserId: function(id){
+				sesionData.uname =id;
+			},
+			getIsLoged: function(){
+				return sesionData.isLoged;
+			},
+			setIsLoged: function(iL){
+				sesionData.isLoged =iL;
+			}
+
+		};
+
+
+	});
 
 
 

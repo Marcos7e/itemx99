@@ -4,6 +4,7 @@ var express = require('express');
 	methodOverride = require('method-override');
 	mongoose = require('mongoose');
 	var port = 8002;
+	var favicon = require('serve-favicon');
 
 
 
@@ -26,6 +27,7 @@ server.use(bodyParser.urlencoded({extended: false}));
 server.use(bodyParser.json());	
 server.use(methodOverride());
 server.use(express.static(__dirname));
+server.use(favicon(__dirname + '/resources/images/evlogfavicon2.jpg'));
 //-------------------------------------------------------
 
 
@@ -36,7 +38,7 @@ server.get('/', function(req, res){
 });
 
 server.post('/done', function(req, res){
-		var User = require('./models/user');
+	var User = require('./models/user');
 	var usuario =  new User({
 		uname: req.body.uname,
 		birth: req.body.birth,
@@ -53,6 +55,30 @@ server.post('/done', function(req, res){
    
 });
 
+server.post('/donelogin/:user/:passwd', function(req, res){
+	var User = require('./models/user');
+
+	User.findOne({uName: req.params.user, passwd: req.params.passwd},function(err, respuesta){
+				  	if(err) return console.log(err+" en /donelogin");
+				  	res.status(200);
+				  	console.log(respuesta);
+				  	res.json(respuesta);
+				  	
+				  });
+	
+
+});
+
+server.get('/marcos', function(req, res){
+	var User = require('./models/user');
+	User.find(function(err, respuesta){
+		if(err) return console.log(err);
+		
+		console.log(respuesta);
+		res.json(respuesta);
+
+	});
+});
 
 //-------------------------------------------------------------
 

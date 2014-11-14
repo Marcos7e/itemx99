@@ -1,5 +1,5 @@
-var x = document.getElementById("demo");
-var info = document.getElementById("latlong");
+//var x = document.getElementById("demo");
+//var info = document.getElementById("latlong");
 
 var coordenadas = new Array();
 
