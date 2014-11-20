@@ -54,6 +54,32 @@ server.post('/done', function(req, res){
 	res.status(200).redirect('/');
    
 });
+server.post('/doneEvent', function(req, res){
+	var Event = require('./models/event');
+	var Evento =  new Event({
+	lat : req.body.lat,
+	lng : req.body.lng,
+	price: req.body.price,
+	evento: req.body.evento,
+	company: req.body.company});
+
+	Evento.save(function(err, Evento){
+		if(err) return console.log(err);
+		console.log("Gracias por Registrar un evento!");
+		console.dir(Evento);
+		res.status(200);
+	});
+   
+});
+
+server.post('/getAllEvents',function(req, res){
+	var Event = require('./models/event');
+	Event.find(function(err,respuesta){
+		if(err) return console.log(err);
+		console.log(respuesta);
+		res.status(200).json(respuesta);
+	});
+});
 
 server.post('/donelogin/:user/:passwd', function(req, res){
 	var User = require('./models/user');
@@ -63,22 +89,40 @@ server.post('/donelogin/:user/:passwd', function(req, res){
 				  	res.status(200);
 				  	console.log(respuesta);
 				  	res.json(respuesta);
-				  	
 				  });
-	
-
 });
 
-server.get('/marcos', function(req, res){
-	var User = require('./models/user');
-	User.find(function(err, respuesta){
-		if(err) return console.log(err);
-		
-		console.log(respuesta);
-		res.json(respuesta);
+server.post('/buyTicket/:evento/:company/:price/:uName/:uId/:date/:isPending', function(req,res){
+	var Historial = require('./models/historial');
 
+	var historial = new Historial({
+		evntName : req.params.evento,
+		evntCompany:  req.params.company,
+		evntPrice: req.params.price,
+ 		userName:  req.params.uName,
+		userId:  req.params.uId,
+		buyDate: req.params.date,
+		isPending: req.params.isPending
+	});
+
+	historial.save(function(err,Historial){
+		if(err) return console.log(err);
+		console.log("has Comprado: \n"+historial);
 	});
 });
+
+server.post('/getPendingMsg/:userId/:isPending', function(req,res){
+	var Historial = require('./models/historial');
+
+	Historial.find({userId: req.params.userId, 
+				   isPending: req.params.isPending}, function(err,data){
+			if(err) console.log(err);
+			console.log(data);
+			res.status(200).json(data);
+		});
+});
+
+
 
 //-------------------------------------------------------------
 

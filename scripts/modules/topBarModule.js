@@ -1,19 +1,21 @@
 app.controller('topBarModule', function($scope, login){
 if(login.getUserName()!="n/a")
 {
-	console.log("Bienvenido hijo! "+login.getUserName());
 
 	$scope.menuStarter = [
 	{'title':'Salir',
 	 'href':'#/salir'},
 	 {'title':'Ver Eventos',
 	 'href':'#/eventos'},
+	 {'title':'Registrar Evento',
+	 'href':'#/eventRegister'}
 	];
 
 	$scope.greeting ={
 		'title':'Bienvenido! '+login.getUserName(),
 		'href' :'#/cuenta',
-		'class': 'navbar-text show'
+		'class': 'navbar-text show',
+		'notif': login.getPendingMsg()
 	};
 
 	$scope.ShoppingCart ={
@@ -23,7 +25,8 @@ if(login.getUserName()!="n/a")
 }
 
 else
-{console.log("nope, aca no hay nadie!");
+{
+	
 
 	$scope.menuStarter = [
 	{'title':'Registrarme',
@@ -44,7 +47,6 @@ else
 	};
 
 
-}
 
 
-	});
+	}});

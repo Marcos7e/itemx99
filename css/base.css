@@ -7,13 +7,15 @@ body {
 html { width: 100%; }
 
 #map_canvas{
-	height: 100%;
+	width:100%;
 }
-
 
 #grtn:hover{
 	text-decoration: none;
+}
 
+.evtnDiv{
+	background-color: #808080;
 
 }
 

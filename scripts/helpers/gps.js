@@ -1,5 +1,3 @@
-//var x = document.getElementById("demo");
-//var info = document.getElementById("latlong");
 
 var coordenadas = new Array();
 
@@ -28,8 +26,6 @@ function showPosition(data) {
    
 };
 
-  
-
   function placeMarker(position, map) {
    var marker = new google.maps.Marker({
     position: position,
@@ -37,10 +33,17 @@ function showPosition(data) {
     animation: google.maps.Animation.DROP
   });
 
-   coordenadas.push(position);
+   //coordenadas.push(position);
   
-   document.getElementById("latlong").innerHTML = coordenadas;
+  document.getElementById("lat").value = position.lat();
+  document.getElementById("lng").value = position.lng();
+
+
 
 }
 
+
+
 google.maps.event.addDomListener(window, 'load', document.ready);
+
+  

@@ -5,6 +5,10 @@ app.controller('loginModule', function($scope, $http,$location,$timeout, login){
 		passwd : ""
 	};
 
+	$scope.userHistorial={};
+
+	$scope.isPending = true;
+
 $scope.logear = function logear(){
 	 login.setUserId($scope.userLoginData.userId);
 
@@ -14,11 +18,15 @@ $scope.logear = function logear(){
 	 		login.setUserId(data.uName);
 	 		login.setUserName(data.uname);
 	 		login.setIsLoged(true);
-	 		console.log(login.getUserId());
-			$location.url("/");
-	 
 	 });
-	//	window.location.replace('/');
+
+	 	$http.post('/getPendingMsg/'
+		+$scope.userLoginData.userId+'/'
+		+$scope.isPending).success(function(data){
+			$scope.userHistorial = data;
+			login.setPendingMsg(data.length);
+			$location.url("/");
+	});
 
 	 };
 

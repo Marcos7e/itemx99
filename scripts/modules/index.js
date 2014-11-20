@@ -28,6 +28,14 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 		templateUrl: 'partial/donelogin.html',
 		controller:'doneLoginModule'
 	})
+	.when('/salir',{
+		templateUrl: 'partial/salir.html',
+		controller:'salirModule'
+	})
+	.when('/eventRegister',{
+		templateUrl: 'partial/eventRegister.html',
+		controller:'eventRegisterModule'
+	})
 
 
 
@@ -43,7 +51,8 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 			uname: 	"n/a",
  			email:  "n/a",
 			uName:  "n/a",
-			isLoged: false
+			isLoged: false,
+			pendingMsg: null
 			};
 
 		return{
@@ -70,7 +79,14 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 			},
 			setIsLoged: function(iL){
 				sesionData.isLoged =iL;
+			},
+			getPendingMsg: function(){
+				return sesionData.pendingMsg;
+			},
+			setPendingMsg: function(pm){
+				sesionData.pendingMsg =pm;
 			}
+
 
 		};
 
