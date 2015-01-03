@@ -113,12 +113,12 @@ server.post('/buyTicket/:evento/:company/:price/:uName/:uId/:date/:isPending', f
 
 server.post('/getPendingMsg/:userId/:isPending', function(req,res){
 	var Historial = require('./models/historial');
-
-	Historial.find({userId: req.params.userId, 
-				   isPending: req.params.isPending}, function(err,data){
+    	
+			Historial.find({userId: req.params.userId, 
+							isPending: req.params.isPending}, function(err,data){
 			if(err) console.log(err);
 			console.log(data);
-			res.status(200).json(data);
+			res.status(200).json(data)
 		});
 });
 

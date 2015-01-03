@@ -71,27 +71,50 @@
 			</nav>
 			<!--Fin de menú -->
 </div>
-<div ng-controller="mapModule">
+<div ng-controller="eventRegisterModule">
 <div class="container-fluid">
 <div class="row">
-	<div class="col-lg-8 col-md-8 col-sm-8">
-		<div  id="map_canvas" style="height: 500px;"></div>
+	<div class="col-lg-8 col-md-8">
+		<div id="map_canvas" style="height: 500px;"></div>
 	</div>
 
-	<div  class="col-lg-4 col-md-4" style="height: 500px; overflow: scroll;">
-		<div class="evtnDiv" ng-repeat="event in datos" ng-click="onDivSelected(event)">
-			<h3><span class="label label-primary">{{event.evento}}</span></h3>
-				<button type="button" class="btn btn-danger pull-right" ng-click="buyTicket(event)">
-						<span class="glyphicon glyphicon-plus"></span>
-				</button>
-			<h4>{{event.company}}</h4>
-			<p><span class="label label-success">Precio: ${{event.price}}</span></p>
-			
+	<div class="col-lg-4 col-md-4">
+	<div class="jumbotron">
+				<h3>Clickee el Mapa sobre el lugar el cual registrará su evento</h3>
+					
+					<form role="form" action="http://localhost:8002/doneEvent" method="post">
+
+					<label for="lat">Latitud</label>
+					<input type="text" class="form-control" id="lat"name="lat" placeholder="Seleccione un punto sobre el mapa" ng-model="lat" readonly>
+
+					<label for="lng">longitud</label>
+					<input type="text" class="form-control" id="lng" name="lng" placeholder="Seleccione un punto sobre el mapa" ng-model="lng" readonly >
+
+					<label for="evento">Evento</label>
+					<input type="text" class="form-control" id="evento" name="evento" placeholder="Evento" ng-model="evento">
+
+
+					<label for="company">Nombre de Compañía</label>
+					<input type="text" class="form-control" id="company" name="company" placeholder="Compañía" ng-model="comp">
+
+
+					<label for="hasPrice">Precio</label>
+					<input type="text" class="form-control" id="hasPrice" name="price" placeholder="Precio del Producto" ng-model="precio">
+					<br/>
+
+
+					<button type="submit" class="btn btn-success" ng-click="guardar()">Guardar</button>
+					<button type="buttton" class="btn btn-danger">Cancelar</button>
+
+
+</form>
+				</div>
+
 			
 		</div>
-		
-	
-	
+
+
+
 		</div>
 	</div>
 </div>
@@ -99,3 +122,4 @@
 </div>
 
 </div>
+

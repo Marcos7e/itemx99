@@ -84,6 +84,7 @@ var app = angular.module('indexModule', ['ngRoute','ui.bootstrap'])
 				return sesionData.pendingMsg;
 			},
 			setPendingMsg: function(pm){
+				if(pm == 0){return null;}
 				sesionData.pendingMsg =pm;
 			}
 

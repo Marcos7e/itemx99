@@ -22,15 +22,18 @@ app.controller('mapModule', function($scope,$http,$log,$location,login){
 			+ new Date()+'/'
 			+$scope.isPending
 			).success(function(data){
-				$log.info("Gracias por comprar Tickets con nosotros!");
 				 login.setPendingMsg(login.getPendingMsg()+1);
-				 $log.info("estoy aca "+login.getPendingMsg());
-				$location.url("/map");
+				 $location.url("/map");
 			});
 
 		}
 		else
 			{$location.url("/login");}
 };	
+
+	$scope.onDivSelected = function(evento){
+		alert(evento.lat+" "+evento.lng);
+
+	};
 
 });
